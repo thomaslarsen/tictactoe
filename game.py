@@ -78,7 +78,6 @@ class Game():
         for iteration in range(0, iterations):
             b = Board()
 
-
             print('Iteration {iteration}, New Round, {turn} to start'.format(iteration=iteration, turn=start_with))
 
             turn = start_with

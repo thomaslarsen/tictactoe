@@ -89,3 +89,7 @@ Tic-Tac-Toe can be played in a way were a draw is always the outcome. It's reall
 The engine will also get to this point, where all games end in a draw and the only way it will win is if it plays against you and you make a mistake. At this point, you will never be able to beat it.
 
 I haven't measured it precisely, but it takes about 2-300000 games for it to reach this level. On my Macbook Pro that is about 2-3 minutes of training!
+
+# Acknowledgements
+
+This was inspired by an episode in the 2019 [Royal Institution Christmas lectures](https://www.rigb.org/christmas-lectures/2019-secrets-and-lies/about-secrets-and-lies) where [Dr. Hannah Fry](https://twitter.com/FryRsquared) used matchboxes when training an engine to play Tic-Tac-Toe.

@@ -29,7 +29,7 @@ def main(args):
     if args.weight:
         print(g.w[args.weight])
         return
-        
+
     if args.train:
         g.train(
             iterations=args.iterations,

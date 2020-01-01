@@ -1,4 +1,3 @@
-
 def checkEqualIvo(lst):
     return lst[0] != ' ' and lst.count(lst[0]) == len(lst)
 
