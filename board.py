@@ -9,15 +9,15 @@ class Board():
     def __str__(self):
         return str(self.board[0:3]) + '\n' + str(self.board[3:6]) + '\n' + str(self.board[6:9])
 
-    def code(self):
+    def code(self, side):
         code = ''
 
         for state in self.board:
             if state == ' ':
                 code += '1'
-            elif state == 'x':
+            elif state == side:
                 code += '2'
-            elif state == 'o':
+            elif state != side:
                 code += '3'
             else:
                 raise Exception('Unknown state ({state}) of position'.format(state=state))

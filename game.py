@@ -16,11 +16,13 @@ class Game():
             else:
                 self.w = {}
 
-    def __get_cue(self, b):
-        if b.code() in self.w:
-            return self.w[b.code()]
+    def __get_cue(self, b, side):
+        code = b.code(side)
+
+        if code in self.w:
+            return self.w[code]
         else:
-            return [100 if state == '1' else 0 for state in b.code()]
+            return [100 if state == '1' else 0 for state in code]
 
     def __take_turn(self, b, turn, cue):
         if sum(cue) == 0:
@@ -86,8 +88,8 @@ class Game():
             winner = None
 
             while not done:
-                cue = self.__get_cue(b)
-                pre_move_code = b.code()
+                cue = self.__get_cue(b, turn)
+                pre_move_code = b.code(turn)
 
                 print('Iteration {iteration}, Round {round}, {turn} to play, ID: {code} ({cue})'.format(iteration=iteration, round=len(steps) + 1, turn=turn, code=pre_move_code, cue=cue))
 
@@ -133,9 +135,10 @@ class Game():
         steps = []
 
         while not done:
-            cue = self.__get_cue(b)
+            cue = self.__get_cue(b, turn)
+            pre_move_code = b.code(side)
 
-            print('Round {round}, ID: {code} ({cue})'.format(round=len(steps) + 1, code=b.code(), cue=cue))
+            print('Round {round}, ID: {code} ({cue})'.format(round=len(steps) + 1, code=pre_move_code, cue=cue))
 
             if (turn == player_side):
                 ok = False
@@ -148,7 +151,7 @@ class Game():
                 done, winner, position = self.__take_turn(b, turn, cue)
 
             steps.append({
-                'code': b.code(),
+                'code': pre_move_code,
                 'side': turn,
                 'position': position,
                 'cue': cue
