@@ -136,7 +136,7 @@ class Game():
 
         while not done:
             cue = self.__get_cue(b, turn)
-            pre_move_code = b.code(side)
+            pre_move_code = b.code(turn)
 
             print('Round {round}, ID: {code} ({cue})'.format(round=len(steps) + 1, code=pre_move_code, cue=cue))
 
